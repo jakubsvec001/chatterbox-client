@@ -1,7 +1,11 @@
 var Rooms = {
 
-  currentRoom: undefined,
+  currentRoom: 'random',
 
-  allRooms: [],
+  allRooms: new Set(),
+
+  updateRooms: function(){
+    // call RoomsView.renderRoom on  allRooms array
+  }
 
 };

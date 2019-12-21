@@ -11,7 +11,8 @@ var MessagesView = {
     var template = MessageView.render;
     const component = template({
       username: post.username,
-      message: post.text
+      message: post.text,
+      roomname: Rooms.currentRoom,
     });
     MessagesView.$chats.append(component);
   },
@@ -35,6 +36,7 @@ var MessagesView = {
   updateHandler: function(event) {
     event.preventDefault();
     App.fetch(Messages.updateMessages);
+    RoomsView.initialize();
   }
 
 };

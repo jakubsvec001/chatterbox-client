@@ -15,14 +15,14 @@ var FormView = {
 
     // Stop the browser from submitting the form
     event.preventDefault();
-    
+
     // get form fields
     // get username
     // get message
     var username = App.username;
     var text = $("#message").val()
     $("#message").val("")
-    var roomname = Rooms.currentRoom? Rooms.currentRoom : '';
+    var roomname = Rooms.currentRoom ? Rooms.currentRoom : '';
 
     var message = {username, text, roomname}
     console.log(message)
