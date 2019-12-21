@@ -2,6 +2,6 @@ var Rooms = {
 
   currentRoom: undefined,
 
-  allRooms: [];
+  allRooms: [],
 
 };

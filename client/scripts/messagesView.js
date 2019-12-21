@@ -1,28 +1,39 @@
 var MessagesView = {
   $chats: $("#chats"),
+  $updateButton: $(".updateButton"),
 
-  initialize: function() {
-    App.fetch(MessagesView.render);
-  },
-
-  render: function(data) {
-    let posts = data.results;
-    for (let message of posts) {
-      MessagesView.renderMessage(message);
-    }
-  },
-
-  renderMessage: function(message) {
+  /////////////////////////////////////
+  //     VIEW
+  /////////////////////////////////////
+  renderMessage: function(post) {
     // debugger;
     var template = MessageView.render;
     const component = template({
-      username: message.username,
-      message: message.text
+      username: post.username,
+      message: post.text
     });
-    MessagesView.$chats.prepend(component);
+    MessagesView.$chats.append(component);
+  },
+  
+  render: function(data) {
+    MessagesView.$chats.empty();
+    let allPosts = data.results;
+    for (let post of allPosts) {
+      MessagesView.renderMessage(post);
+    }
+  },
+  
+  /////////////////////////////////////
+  //     CONTROLLER
+  /////////////////////////////////////
+  initialize: function() {
+    App.fetch(Messages.updateMessages);
+    MessagesView.$updateButton.on('click', MessagesView.updateHandler)
   },
 
-  updateMessages: function(){
-
+  updateHandler: function(event) {
+    event.preventDefault();
+    App.fetch(Messages.updateMessages);
   }
+
 };

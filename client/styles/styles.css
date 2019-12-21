@@ -90,7 +90,7 @@ form input[type=text] {
     background-color: #0090da;
 }
 
-.update {
+.updateButton {
     color: aliceblue;
     padding: .75em;
     background-color: steelblue;
@@ -98,10 +98,10 @@ form input[type=text] {
     text-decoration: none;
 }
 
-.update:hover {
+.updateButton:hover {
     background-color: #deb887;
 }
 
-.update:active{
+.updateButton:active{
     background-color: #c89552
 }

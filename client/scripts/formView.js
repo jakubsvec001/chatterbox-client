@@ -19,14 +19,16 @@ var FormView = {
     // get form fields
     // get username
     // get message
-    //
     var username = App.username;
-    var text = $("#message").text
+    var text = $("#message").val()
+    $("#message").val("")
     var roomname = Rooms.currentRoom? Rooms.currentRoom : '';
 
-    var message = {username, message, roomname}
+    var message = {username, text, roomname}
+    console.log(message)
     // TODO: sanitize message
-    parse.create(message, ()=> console.log("successfully posted message!"))
+    Parse.create(message, ()=> console.log("successfully posted message!"))
+
 
   },
 

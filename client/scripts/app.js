@@ -20,8 +20,8 @@ var App = {
     // debugger;
     Parse.readAll((data) => {
       // move items to messages, update messages as necessary
-      App.updateMessages(data);
-      App.updateRooms(data);
+      // App.updateMessages(data);
+      // App.updateRooms(data);
       callback(data);
     });
   },
@@ -34,14 +34,6 @@ var App = {
   stopSpinner: function(data) {
     App.$spinner.fadeOut('fast');
     FormView.setStatus(false);
-  },
-
-  updateMessages: function(){
-
-  },
-
-  updateRooms: function(){
-
   },
 
   andAnother: function(){
