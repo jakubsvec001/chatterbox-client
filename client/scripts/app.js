@@ -14,15 +14,15 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
-
   },
 
   fetch: function(callback = ()=>{}) {
+    // debugger;
     Parse.readAll((data) => {
-      // examine the response from the server request:
-      console.log(data);
-
-      callback();
+      // move items to messages, update messages as necessary
+      App.updateMessages(data);
+      App.updateRooms(data);
+      callback(data);
     });
   },
 
@@ -31,8 +31,20 @@ var App = {
     FormView.setStatus(true);
   },
 
-  stopSpinner: function() {
+  stopSpinner: function(data) {
     App.$spinner.fadeOut('fast');
     FormView.setStatus(false);
+  },
+
+  updateMessages: function(){
+
+  },
+
+  updateRooms: function(){
+
+  },
+
+  andAnother: function(){
+
   }
 };
