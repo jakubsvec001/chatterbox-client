@@ -7,6 +7,7 @@ var MessagesView = {
   /////////////////////////////////////
   renderMessage: function(post) {
     // debugger;
+
     var template = MessageView.render;
     const component = template({
       username: post.username,
@@ -14,7 +15,7 @@ var MessagesView = {
     });
     MessagesView.$chats.append(component);
   },
-  
+
   render: function(data) {
     MessagesView.$chats.empty();
     let allPosts = data.results;
@@ -22,7 +23,7 @@ var MessagesView = {
       MessagesView.renderMessage(post);
     }
   },
-  
+
   /////////////////////////////////////
   //     CONTROLLER
   /////////////////////////////////////
