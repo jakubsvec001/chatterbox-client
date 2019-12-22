@@ -6,8 +6,6 @@ var MessagesView = {
   //     VIEW
   /////////////////////////////////////
   renderMessage: function(post) {
-    // debugger;
-
     var template = MessageView.render;
     const component = template({
       username: post.username,
@@ -28,9 +26,15 @@ var MessagesView = {
   /////////////////////////////////////
   //     CONTROLLER
   /////////////////////////////////////
-  initialize: function() {
-    App.fetch(Messages.updateMessages);
+  initialize: function(cbArray) {
     MessagesView.$updateButton.on('click', MessagesView.updateHandler)
+    const cbs = function(data){
+      Messages.updateMessages(data);
+      Rooms.updateRooms();
+      App.stopSpinner();
+      FriendsView.initialize();
+    }
+    App.fetch(cbs);
   },
 
   updateHandler: function(event) {

@@ -2,7 +2,7 @@ var Messages = {
 
   // single source of truth
   storage: {},
-  
+
   displayed: {results: []},
 
   updateMessages: function(data) {

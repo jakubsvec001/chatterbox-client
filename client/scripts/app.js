@@ -8,16 +8,15 @@ var App = {
     App.username = window.location.search.substr(10);
 
     FormView.initialize();
+    App.startSpinner();
     MessagesView.initialize();
-    RoomsView.initialize();
+    FriendsView.initialize();
 
     // Fetch initial batch of messages
-    App.startSpinner();
-    App.fetch(App.stopSpinner);
+    // App.fetch(App.stopSpinner);
   },
 
   fetch: function(callback = ()=>{}) {
-    // debugger;
     Parse.readAll((data) => {
       // move items to messages, update messages as necessary
       // App.updateMessages(data);

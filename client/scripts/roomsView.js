@@ -22,5 +22,7 @@ var RoomsView = {
   },
 
   // on inputting a new room type
-  createRoom: function() {}
+  createRoom: function() {
+
+  },
 };
